@@ -1,10 +1,12 @@
 <?php
 error_reporting(E_ALL);
 
-function pr(string $exp, ?string $name = '')
+function pr($exp, ?string $name = '')
 {
     echo '<br><pre>';
-    echo "$name: ";
+    if ($name) {
+        echo "<strong>### $name: ###</strong><br>";
+    }
     print_r($exp);
     echo '</pre><br>';
 }
@@ -52,15 +54,34 @@ function request(string $method, string $api, array $header, ?string $body = '')
         CURLOPT_HTTPHEADER     => $header,
         CURLOPT_HEADER         => TRUE,
         // CURLOPT_HEADER         => FALSE,
+        CURLINFO_HEADER_OUT    => TRUE,
         CURLOPT_RETURNTRANSFER => TRUE
     ]);
+    // curl_setopt($ch, CURLOPT_CUSTOMREQUEST,  $method);
+    // curl_setopt($ch, CURLOPT_HTTPHEADER,     $header);
+    // curl_setopt($ch, CURLOPT_HEADER,         TRUE);
+    // curl_setopt($ch, CURLINFO_HEADER_OUT,    TRUE);
+    // curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
     if ($body) {
         curl_setopt($ch, CURLOPT_POSTFIELDS, $body);
+        // curl_setopt_array($ch, [
+        //     CURLOPT_POSTFIELDS => $body
+        // ]);
     }
 
     $response = curl_exec($ch);
+    $curlInfo = curl_getinfo($ch);
+    $info = [
+        'URL'            => $curlInfo['url'],
+        'Код ответа'     => $curlInfo['http_code'],
+        'Content-Type:'  => $curlInfo['content_type'],
+        'Строка запроса' => $curlInfo['request_header'],
+    ];
+    // $info = curl_getinfo($ch);
+
     // $status = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
     curl_close($ch);
+    pr($info, '$info');
     // return (int) $status;
     return $response;
 }
