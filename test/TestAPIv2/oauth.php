@@ -2,7 +2,6 @@
 
 define('APP_ID',       '54dc44b0-aa68-4e36-9b4a-569c6ea19603');
 define('VERSION_ID',   '787234c1-d85e-42d7-b1d3-ccd0dfcb83c8');
-// define('VERSION_ID',   '03ab4305-502a-4a44-a882-2ecfe3359601');
 define('REDIRECT_URL', 'https://evotor.online/test/TestAPIv2');
 
 
@@ -19,17 +18,16 @@ function  f1()
 {
     $app_id     = APP_ID;
     $version_id = VERSION_ID;
-    $version_id = '0.1.0';
     $api = "https://dev.evotor.ru/api/v1/publisher/app/oauth/public/apps/{$app_id}/versions/{$version_id}/oauth-apps?type=web";
     // $api = "https://dev.evotor.ru/api/v1/publisher/app/oauth/public/apps/{$app_id}/versions/{$version_id}/oauth-apps?type=standalone";
-    $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJYLUZpbmdlcnByaW50IjoiZTQ4MjZhYjc4MzcxYjE4N2EyYTA0NjcwZTRiZTQ0ZmEiLCJ1c2VyX25hbWUiOiJyZW1idG1hc3RlckBnbWFpbC5jb20iLCJ4X3VzZXJfaWQiOiJkOGYwN2U4MC00NmU2LTQ1YjQtOGRjNC1lZjJkMjBlNWY5MzgiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJwdXJjaGFzZSJdLCJleHAiOjE1ODk4NzEwNzMsImlhdCI6MTU4OTg2OTI3MzA0OCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9QVUJMSVNIRVIiXSwianRpIjoiZjlhOTVhZjQtOGI2NC00ZDk5LWJmMTQtNDE5ZWNlNmRjZWIwIiwieF91aWQiOm51bGwsImNsaWVudF9pZCI6IkV2by1VSSIsInhfbG9uZ2xpdmVkIjpmYWxzZX0.Apl8JeinzY_T2BcjN-2_Co86csIE2Zt8QbQuL01NoeI";
+    $token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJYLUZpbmdlcnByaW50IjoiZTQ4MjZhYjc4MzcxYjE4N2EyYTA0NjcwZTRiZTQ0ZmEiLCJ1c2VyX25hbWUiOiJyZW1idG1hc3RlckBnbWFpbC5jb20iLCJ4X3VzZXJfaWQiOiJkOGYwN2U4MC00NmU2LTQ1YjQtOGRjNC1lZjJkMjBlNWY5MzgiLCJzY29wZSI6WyJyZWFkIiwid3JpdGUiLCJwdXJjaGFzZSJdLCJleHAiOjE1ODk5NTI3NDAsImlhdCI6MTU4OTk1MDk0MDM1MCwiYXV0aG9yaXRpZXMiOlsiUk9MRV9QVUJMSVNIRVIiXSwianRpIjoiYTE2YThkNjUtZGE0MS00YjVhLWE2MGEtOWExMjc4MGJmZTAzIiwieF91aWQiOm51bGwsImNsaWVudF9pZCI6IkV2by1VSSIsInhfbG9uZ2xpdmVkIjpmYWxzZX0.7Z4vaMnxXMPENcMqsb8DzZHLeREh9EButnvu30vj56E";
     $user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4044.138 Safari/537.36';
     $header = [
         "Authorization: {$token}",
-        'Accept: application/json',
-        'Accept: application/vnd.evotor.v2+json',
+        // 'Accept: application/json',
+        // 'Accept: application/vnd.evotor.v2+json',
         'Content-Type: application/json',
-        'Content-Type: application/vnd.evotor.v2+json',
+        // 'Content-Type: application/vnd.evotor.v2+json',
         'Origin: https://dev.evotor.ru',
         "User-Agent: {$user_agent}",
     ];

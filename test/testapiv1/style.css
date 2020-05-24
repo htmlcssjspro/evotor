@@ -1,0 +1,49 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  margin: 0;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.btn:focus {
+  outline-style: none;
+}
+
+.btn_green {
+  background-color: #EE82EE;
+}
+
+.btn_purple {
+  background-color: #EE82EE;
+}
+
+.btn_red {
+  background-color: red;
+}
+
+.main__change_wrapper {
+  display: flex;
+  justify-content: space-around;
+}
+
+.tab_btn {
+  border: 3px solid #EE82EE;
+}
+
+.tab_btn_active {
+  border-bottom: 3px solid red;
+}
+
+.tab_content {
+  /* display: none; */
+}
+
+.tab_content_active {
+  display: block;
+}

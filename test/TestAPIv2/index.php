@@ -43,10 +43,13 @@ $headers = [
 ];
 
 // OAUTH
-f1();
-// f2();
-// f3();
-// getInfo();
+if ($token) {
+    f1();
+    // f2();
+    // f3();
+    // getInfo();
+}
+
 
 
 

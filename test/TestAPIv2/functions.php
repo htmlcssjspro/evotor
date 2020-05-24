@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 
 function pr($exp, ?string $name = '')
 {
@@ -68,7 +67,6 @@ function request(string $method, string $api, array $header, ?string $body = '')
         //     CURLOPT_POSTFIELDS => $body
         // ]);
     }
-
     $response = curl_exec($ch);
     $curlInfo = curl_getinfo($ch);
     $info = [
@@ -77,11 +75,7 @@ function request(string $method, string $api, array $header, ?string $body = '')
         'Content-Type:'  => $curlInfo['content_type'],
         'Строка запроса' => $curlInfo['request_header'],
     ];
-    // $info = curl_getinfo($ch);
-
-    // $status = curl_getinfo($ch, CURLINFO_RESPONSE_CODE);
     curl_close($ch);
     pr($info, '$info');
-    // return (int) $status;
     return $response;
 }
